@@ -1,0 +1,26 @@
+def polyalphabetic_substitution(text, key):
+    key = key.upper()
+    key_index = 0
+    result = []
+
+    for char in text:
+        if char.isalpha():
+            shift = ord(key[key_index % len(key)]) - ord('A')
+            shift = shift if char.isupper() else shift + 32
+            encrypted_char = chr(((ord(char) - ord('A') + shift) % 26) + ord('A'))
+            result.append(encrypted_char)
+            key_index += 1
+        else:
+            result.append(char)
+
+    return ''.join(result)
+
+def main():
+    key = input("Enter the key: ")
+    text = input("Enter the text: ")
+
+    encrypted_text = polyalphabetic_substitution(text, key)
+    print("Encrypted Text:", encrypted_text)
+
+if __name__ == "__main__":
+    main()
