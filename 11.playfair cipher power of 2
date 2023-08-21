@@ -1,0 +1,10 @@
+import math
+
+total_keys = 1
+for i in range(26, 1, -1):
+    total_keys *= i
+
+approx_power_of_2 = int(math.log2(total_keys))
+
+print("Total number of possible keys:", total_keys)
+print("Approximate power of 2:", approx_power_of_2)
